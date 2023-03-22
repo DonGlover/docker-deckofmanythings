@@ -8,10 +8,11 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
+RUN pip install waitress
 
 COPY . /app
 
-ENTRYPOINT [ "python3" ]
+#ENTRYPOINT [ "python3" ]
 EXPOSE 5000
 
-CMD ["app.py"]
+CMD ["python3", "-u","app.py"]
